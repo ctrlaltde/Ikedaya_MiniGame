@@ -3,7 +3,13 @@ guid: 866e3c58493dd964ca390b0eaa3fd8b2
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - enemy: {instanceID: 0}
+  - enemyTopSpawn: {instanceID: 0}
+  - bossSpawn: {instanceID: 0}
+  - enemyBottomSpawn: {instanceID: 0}
+  - powerup: {instanceID: 0}
+  - boss: {instanceID: 0}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 

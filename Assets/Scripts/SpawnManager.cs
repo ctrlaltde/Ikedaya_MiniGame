@@ -14,67 +14,55 @@ public class SpawnManager : MonoBehaviour
 
     public int wave = 0;
     public int enemyCount;
+    public bool bossSpawnCond = false;
 
     // Start is called before the first frame update
     void Start()
     {
 
         EnemySpawn();
-        PowerupSpawn();
-        BossSpawn();
-
+        
+        
     }
 
     // Update is called once per frame
     void Update()
     {
-        
-       enemyCount = FindObjectsOfType<Enemy>().Length;
 
-        if (enemyCount == 0)
+        enemyCount = FindObjectsOfType<Enemy>().Length;
 
+        if (enemyCount == 0 & wave == 0)
         {
-            EnemySpawn();
             BossSpawn();
-        }
+            PowerupSpawn();
 
+        }
+        
+        
 
     }
 
     public void EnemySpawn()
     {
 
-        if (wave < 3)
-        {
             Instantiate(enemy, enemyTopSpawn.transform.position, transform.rotation);
             Instantiate(enemy, enemyBottomSpawn.transform.position, transform.rotation);
-            wave++;
-        }
-         
-
     }
 
-    private void BossSpawn()
+    public void BossSpawn()
 
-    {
-
-        if (wave > 2)
-        {
+    {    
             Instantiate(boss, bossSpawn.transform.position, transform.rotation);
-        }
-        
-
-
+            wave++;
     }
 
     private void PowerupSpawn()
 
     {
 
-        Vector3 randomSpawn = new Vector3(Random.Range(-10, 9), 1f, Random.Range(-10, 14));
+        Vector3 randomSpawn = new Vector3(Random.Range(-8, 2), 1f, Random.Range(-1, 18));
 
-        Instantiate(powerup, randomSpawn, transform.rotation);
-        
+            Instantiate(powerup, randomSpawn, transform.rotation);
 
     }
 
